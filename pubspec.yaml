@@ -1,0 +1,115 @@
+name: zehnmind
+description: "Zehnmind Tasks — Firebase-powered Auth + TODO + Profile demo (Senior Flutter test)."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State management & DI
+  flutter_bloc: ^9.1.1
+  get_it: ^9.1.0
+  injectable: ^2.5.0
+
+  # Routing
+  go_router: ^17.0.0
+
+  # Code generation annotations
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # Firebase
+  firebase_core: ^3.9.0
+  firebase_auth: ^5.5.1
+  cloud_firestore: ^5.5.1
+  firebase_analytics: ^11.3.0
+  firebase_crashlytics: ^4.3.1
+  google_sign_in: ^7.2.0
+
+  # UI / theming
+  google_fonts: ^8.0.0
+  flutter_animate: ^4.5.2
+  flutter_native_splash: ^2.4.6
+  flutter_svg: ^2.2.0
+  pinput: ^6.0.0
+
+  # Utilities
+  equatable: ^2.0.7
+  intl: ^0.20.2
+  logger: ^2.6.0
+  package_info_plus: ^9.0.0
+  shared_preferences: ^2.5.3
+  path_provider: ^2.1.5
+
+  # i18n
+  slang: ^4.7.2
+  slang_flutter: ^4.7.0
+
+  # Sharing & PDF
+  share_plus: ^12.0.1
+  pdf: ^3.11.1
+  open_filex: ^4.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  build_runner: ^2.5.4
+  freezed: ^3.0.6
+  injectable_generator: ^2.7.0
+  json_serializable: ^6.9.5
+  flutter_gen_runner: ^5.11.0
+
+  flutter_lints: ^6.0.0
+  lint: ^2.8.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/fonts/inter/
+    - assets/images/
+    - assets/images/social_logos/
+    - assets/icons/
+    - assets/icons/nav_bar/
+    - assets/lotties/
+    - assets/svg/
+    - assets/animations/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter_18pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/Inter_18pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/Inter_18pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/Inter_18pt-Regular.ttf
+          weight: 400
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#0E0E10"
+  fullscreen: true
+  ios: true
+  android: true
+
+flutter_gen:
+  output: lib/core/assets/
+  line_length: 100
+  assets:
+    enabled: true
+    outputs:
+      class_name: UiKitAssets
+
+  integrations:
+    flutter_svg: true

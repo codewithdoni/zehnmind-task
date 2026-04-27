@@ -1,0 +1,10 @@
+{
+  "aps": {
+    "alert": {
+      "title": "This is push notification title",
+      "subtitle": "This is push notification subtitle",
+      "body": "To run this notification write 'xcrun simctl push booted uz.uzchess.akademiya ios/Runner/APNSTest.json' on the terminal",
+      "sound": "default"
+    }
+  }
+}

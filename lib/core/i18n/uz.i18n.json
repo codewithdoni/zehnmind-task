@@ -1,0 +1,81 @@
+{
+  "common": {
+    "ok": "OK",
+    "cancel": "Bekor qilish",
+    "save": "Saqlash",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "retry": "Qayta urinish",
+    "loading": "Yuklanmoqda...",
+    "logout": "Chiqish",
+    "logout_confirm": "Hisobdan chiqishni xohlaysizmi?",
+    "yes": "Ha",
+    "no": "Yo'q"
+  },
+  "errors": {
+    "something_went_wrong": "Xatolik yuz berdi",
+    "no_internet": "Internet aloqasi yo'q",
+    "invalid_credentials": "Email yoki parol noto'g'ri",
+    "weak_password": "Parol juda qisqa (kamida 6 ta belgi)",
+    "email_in_use": "Bu email allaqachon ro'yxatdan o'tgan",
+    "invalid_email": "Email format noto'g'ri",
+    "user_not_found": "Foydalanuvchi topilmadi",
+    "invalid_otp": "SMS kod noto'g'ri",
+    "google_sign_in_failed": "Google bilan kirish bekor qilindi"
+  },
+  "onboarding": {
+    "step1_title": "Vazifalaringizni boshqaring",
+    "step1_desc": "Hayotingizni tartibga soling — todo'larni qo'shing va tugallash bilan davom eting.",
+    "step2_title": "Hamma joyda sinxron",
+    "step2_desc": "Cloud orqali real-time sinxronlash — har qanday qurilmadan kiring.",
+    "step3_title": "Boshlaymiz!",
+    "step3_desc": "Tez ro'yxatdan o'ting va birinchi vazifangizni qo'shing.",
+    "skip": "O'tkazib yuborish",
+    "next": "Keyingi",
+    "get_started": "Boshlash"
+  },
+  "auth": {
+    "login": "Kirish",
+    "register": "Ro'yxatdan o'tish",
+    "register_subtitle": "Yangi hisob yarating",
+    "login_subtitle": "Hisobingizga kiring",
+    "full_name": "To'liq ism",
+    "email": "Email",
+    "password": "Parol",
+    "phone": "Telefon raqam",
+    "or_continue_with": "yoki davom eting",
+    "google": "Google",
+    "by_email": "Email orqali",
+    "by_phone": "Telefon orqali",
+    "no_account": "Hisobingiz yo'qmi?",
+    "have_account": "Hisobingiz bormi?",
+    "send_code": "Kod yuborish",
+    "verify": "Tasdiqlash",
+    "otp_title": "SMS kodni kiriting",
+    "otp_subtitle": "{phone} raqamiga 6 raqamli kod yuborildi",
+    "resend_in": "Qayta yuborish ({seconds}s)",
+    "resend_now": "Qayta yuborish"
+  },
+  "home": {
+    "title": "Mening vazifalarim",
+    "empty": "Hali vazifa yo'q. + tugmasini bosing!",
+    "add_task": "Yangi vazifa",
+    "edit_task": "Vazifani tahrirlash",
+    "task_title": "Sarlavha",
+    "task_description": "Tavsif (ixtiyoriy)",
+    "add": "Qo'shish",
+    "completed_count": "{done}/{total} bajarildi"
+  },
+  "profile": {
+    "title": "Profil",
+    "name": "Ism",
+    "email": "Email",
+    "phone": "Telefon",
+    "joined": "Qo'shilgan sana",
+    "edit_profile": "Profilni tahrirlash",
+    "share_contact": "Kontaktni ulashish",
+    "export_pdf": "PDF eksport",
+    "edit_title": "Profilni tahrirlash",
+    "save_changes": "O'zgarishlarni saqlash"
+  }
+}

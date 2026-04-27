@@ -1,0 +1,81 @@
+{
+  "common": {
+    "ok": "ОК",
+    "cancel": "Бекор қилиш",
+    "save": "Сақлаш",
+    "delete": "Ўчириш",
+    "edit": "Таҳрирлаш",
+    "retry": "Қайта уриниш",
+    "loading": "Юкланмоқда...",
+    "logout": "Чиқиш",
+    "logout_confirm": "Ҳисобдан чиқишни хоҳлайсизми?",
+    "yes": "Ҳа",
+    "no": "Йўқ"
+  },
+  "errors": {
+    "something_went_wrong": "Хатолик юз берди",
+    "no_internet": "Интернет алоқаси йўқ",
+    "invalid_credentials": "Email ёки парол нотўғри",
+    "weak_password": "Парол жуда қисқа (камида 6 та белги)",
+    "email_in_use": "Бу email аллақачон рўйхатдан ўтган",
+    "invalid_email": "Email формати нотўғри",
+    "user_not_found": "Фойдаланувчи топилмади",
+    "invalid_otp": "СМС код нотўғри",
+    "google_sign_in_failed": "Google билан кириш бекор қилинди"
+  },
+  "onboarding": {
+    "step1_title": "Вазифаларингизни бошқаринг",
+    "step1_desc": "Ҳаётингизни тартибга солинг — todoларни қўшинг ва тугаллаш билан давом этинг.",
+    "step2_title": "Ҳамма жойда синхрон",
+    "step2_desc": "Cloud орқали real-time синхронлаш — ҳар қандай қурилмадан киринг.",
+    "step3_title": "Бошлаймиз!",
+    "step3_desc": "Тез рўйхатдан ўтинг ва биринчи вазифангизни қўшинг.",
+    "skip": "Ўтказиб юбориш",
+    "next": "Кейинги",
+    "get_started": "Бошлаш"
+  },
+  "auth": {
+    "login": "Кириш",
+    "register": "Рўйхатдан ўтиш",
+    "register_subtitle": "Янги ҳисоб яратинг",
+    "login_subtitle": "Ҳисобингизга киринг",
+    "full_name": "Тўлиқ исм",
+    "email": "Email",
+    "password": "Парол",
+    "phone": "Телефон рақам",
+    "or_continue_with": "ёки давом этинг",
+    "google": "Google",
+    "by_email": "Email орқали",
+    "by_phone": "Телефон орқали",
+    "no_account": "Ҳисобингиз йўқми?",
+    "have_account": "Ҳисобингиз борми?",
+    "send_code": "Код юбориш",
+    "verify": "Тасдиқлаш",
+    "otp_title": "СМС кодни киритинг",
+    "otp_subtitle": "{phone} рақамига 6 рақамли код юборилди",
+    "resend_in": "Қайта юбориш ({seconds}с)",
+    "resend_now": "Қайта юбориш"
+  },
+  "home": {
+    "title": "Менинг вазифаларим",
+    "empty": "Ҳали вазифа йўқ. + тугмасини босинг!",
+    "add_task": "Янги вазифа",
+    "edit_task": "Вазифани таҳрирлаш",
+    "task_title": "Сарлавҳа",
+    "task_description": "Тавсиф (ихтиёрий)",
+    "add": "Қўшиш",
+    "completed_count": "{done}/{total} бажарилди"
+  },
+  "profile": {
+    "title": "Профиль",
+    "name": "Исм",
+    "email": "Email",
+    "phone": "Телефон",
+    "joined": "Қўшилган сана",
+    "edit_profile": "Профилни таҳрирлаш",
+    "share_contact": "Контактни улашиш",
+    "export_pdf": "PDF экспорт",
+    "edit_title": "Профилни таҳрирлаш",
+    "save_changes": "Ўзгаришларни сақлаш"
+  }
+}

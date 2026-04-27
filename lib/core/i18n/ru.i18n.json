@@ -1,0 +1,81 @@
+{
+  "common": {
+    "ok": "ОК",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "retry": "Повторить",
+    "loading": "Загрузка...",
+    "logout": "Выйти",
+    "logout_confirm": "Вы хотите выйти из аккаунта?",
+    "yes": "Да",
+    "no": "Нет"
+  },
+  "errors": {
+    "something_went_wrong": "Произошла ошибка",
+    "no_internet": "Нет интернет соединения",
+    "invalid_credentials": "Неверный email или пароль",
+    "weak_password": "Пароль слишком короткий (минимум 6 символов)",
+    "email_in_use": "Этот email уже зарегистрирован",
+    "invalid_email": "Неверный формат email",
+    "user_not_found": "Пользователь не найден",
+    "invalid_otp": "Неверный SMS код",
+    "google_sign_in_failed": "Вход через Google отменён"
+  },
+  "onboarding": {
+    "step1_title": "Управляйте задачами",
+    "step1_desc": "Организуйте свою жизнь — добавляйте задачи и отмечайте выполненные.",
+    "step2_title": "Синхронизация везде",
+    "step2_desc": "Реалтайм синхронизация через cloud — заходите с любого устройства.",
+    "step3_title": "Начнём!",
+    "step3_desc": "Быстро зарегистрируйтесь и добавьте первую задачу.",
+    "skip": "Пропустить",
+    "next": "Далее",
+    "get_started": "Начать"
+  },
+  "auth": {
+    "login": "Войти",
+    "register": "Регистрация",
+    "register_subtitle": "Создайте новый аккаунт",
+    "login_subtitle": "Войдите в свой аккаунт",
+    "full_name": "Полное имя",
+    "email": "Email",
+    "password": "Пароль",
+    "phone": "Номер телефона",
+    "or_continue_with": "или продолжите",
+    "google": "Google",
+    "by_email": "По Email",
+    "by_phone": "По телефону",
+    "no_account": "Нет аккаунта?",
+    "have_account": "Есть аккаунт?",
+    "send_code": "Отправить код",
+    "verify": "Подтвердить",
+    "otp_title": "Введите SMS код",
+    "otp_subtitle": "На {phone} отправлен 6-значный код",
+    "resend_in": "Отправить снова ({seconds}с)",
+    "resend_now": "Отправить снова"
+  },
+  "home": {
+    "title": "Мои задачи",
+    "empty": "Пока нет задач. Нажмите +!",
+    "add_task": "Новая задача",
+    "edit_task": "Редактировать задачу",
+    "task_title": "Заголовок",
+    "task_description": "Описание (опционально)",
+    "add": "Добавить",
+    "completed_count": "{done}/{total} выполнено"
+  },
+  "profile": {
+    "title": "Профиль",
+    "name": "Имя",
+    "email": "Email",
+    "phone": "Телефон",
+    "joined": "Дата регистрации",
+    "edit_profile": "Редактировать профиль",
+    "share_contact": "Поделиться контактом",
+    "export_pdf": "PDF экспорт",
+    "edit_title": "Редактировать профиль",
+    "save_changes": "Сохранить изменения"
+  }
+}

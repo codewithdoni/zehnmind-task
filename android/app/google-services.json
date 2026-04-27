@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715678457111",
+    "project_id": "zehnmind-task-9f2a3",
+    "storage_bucket": "zehnmind-task-9f2a3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715678457111:android:d3a18ef0d222bda167eb52",
+        "android_client_info": {
+          "package_name": "ai.zehnmind.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715678457111-kc8q3ma5i64o6e2ra3lf1b5nm87a6r00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbkxsAPI9lqg_Unao0k5oXaqJrigIx_Uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715678457111-kc8q3ma5i64o6e2ra3lf1b5nm87a6r00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

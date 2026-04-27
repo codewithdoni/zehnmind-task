@@ -1,0 +1,7 @@
+base_locale: uz
+fallback_strategy: base_locale
+input_directory: lib/core/i18n
+input_file_pattern: .i18n.json
+output_directory: lib/core/i18n
+output_file_name: translations.g.dart
+output_format: single_file

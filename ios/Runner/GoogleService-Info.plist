@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>715678457111-r5leb001sb1esa8u0irs3r1eijb4gim4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.715678457111-r5leb001sb1esa8u0irs3r1eijb4gim4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBnnWVShWByHQvWgdSjcN3K-C31B7hJHGA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>715678457111</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ai.zehnmind.app</string>
+	<key>PROJECT_ID</key>
+	<string>zehnmind-task-9f2a3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zehnmind-task-9f2a3.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:715678457111:ios:65821a6496e513e967eb52</string>
+</dict>
+</plist>
