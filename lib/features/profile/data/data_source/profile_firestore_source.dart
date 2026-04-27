@@ -17,13 +17,30 @@ class ProfileFirestoreSource {
     return _firestore.collection('users').doc(uid);
   }
 
+  Future<void> _ensureProfileExists() async {
+    final user = _auth.currentUser;
+    if (user == null) return;
+    final ref = _doc();
+    final snap = await ref.get();
+    if (!snap.exists) {
+      await ref.set({
+        'full_name': user.displayName ?? '',
+        'email': user.email ?? '',
+        'phone': user.phoneNumber ?? '',
+        'created_at': FieldValue.serverTimestamp(),
+      });
+    }
+  }
+
   Future<UserProfile> getProfile() async {
+    await _ensureProfileExists();
     final snap = await _doc().get();
     return UserProfile.fromFirestore(snap);
   }
 
-  Stream<UserProfile> watchProfile() {
-    return _doc().snapshots().map(UserProfile.fromFirestore);
+  Stream<UserProfile> watchProfile() async* {
+    await _ensureProfileExists();
+    yield* _doc().snapshots().map(UserProfile.fromFirestore);
   }
 
   Future<void> updateProfile(UserProfile profile) async {

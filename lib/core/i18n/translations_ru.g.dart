@@ -41,6 +41,7 @@ class TranslationsRu extends Translations with BaseTranslations<AppLocale, Trans
 	// Translations
 	@override late final _TranslationsCommonRu common = _TranslationsCommonRu._(_root);
 	@override late final _TranslationsErrorsRu errors = _TranslationsErrorsRu._(_root);
+	@override late final _TranslationsLanguageRu language = _TranslationsLanguageRu._(_root);
 	@override late final _TranslationsOnboardingRu onboarding = _TranslationsOnboardingRu._(_root);
 	@override late final _TranslationsAuthRu auth = _TranslationsAuthRu._(_root);
 	@override late final _TranslationsHomeRu home = _TranslationsHomeRu._(_root);
@@ -85,6 +86,22 @@ class _TranslationsErrorsRu extends TranslationsErrorsUz {
 	@override String get google_sign_in_failed => 'Вход через Google отменён';
 }
 
+// Path: language
+class _TranslationsLanguageRu extends TranslationsLanguageUz {
+	_TranslationsLanguageRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Выберите язык';
+	@override String get subtitle => 'На каком языке отображать приложение?';
+	@override String get uzbek => 'O\'zbekcha';
+	@override String get uzbek_cyrillic => 'Ўзбекча';
+	@override String get russian => 'Русский';
+	@override String get kContinue => 'Продолжить';
+	@override String get change_language => 'Изменить язык';
+}
+
 // Path: onboarding
 class _TranslationsOnboardingRu extends TranslationsOnboardingUz {
 	_TranslationsOnboardingRu._(TranslationsRu root) : this._root = root, super.internal(root);
@@ -98,9 +115,12 @@ class _TranslationsOnboardingRu extends TranslationsOnboardingUz {
 	@override String get step2_desc => 'Реалтайм синхронизация через cloud — заходите с любого устройства.';
 	@override String get step3_title => 'Начнём!';
 	@override String get step3_desc => 'Быстро зарегистрируйтесь и добавьте первую задачу.';
+	@override String get step4_title => 'Будь в курсе';
+	@override String get step4_desc => 'Получайте уведомления, когда подходит срок задачи.';
 	@override String get skip => 'Пропустить';
 	@override String get next => 'Далее';
 	@override String get get_started => 'Начать';
+	@override String get allow_notifications => 'Разрешить уведомления';
 }
 
 // Path: auth
@@ -196,15 +216,25 @@ extension on TranslationsRu {
 			'errors.user_not_found' => 'Пользователь не найден',
 			'errors.invalid_otp' => 'Неверный SMS код',
 			'errors.google_sign_in_failed' => 'Вход через Google отменён',
+			'language.title' => 'Выберите язык',
+			'language.subtitle' => 'На каком языке отображать приложение?',
+			'language.uzbek' => 'O\'zbekcha',
+			'language.uzbek_cyrillic' => 'Ўзбекча',
+			'language.russian' => 'Русский',
+			'language.kContinue' => 'Продолжить',
+			'language.change_language' => 'Изменить язык',
 			'onboarding.step1_title' => 'Управляйте задачами',
 			'onboarding.step1_desc' => 'Организуйте свою жизнь — добавляйте задачи и отмечайте выполненные.',
 			'onboarding.step2_title' => 'Синхронизация везде',
 			'onboarding.step2_desc' => 'Реалтайм синхронизация через cloud — заходите с любого устройства.',
 			'onboarding.step3_title' => 'Начнём!',
 			'onboarding.step3_desc' => 'Быстро зарегистрируйтесь и добавьте первую задачу.',
+			'onboarding.step4_title' => 'Будь в курсе',
+			'onboarding.step4_desc' => 'Получайте уведомления, когда подходит срок задачи.',
 			'onboarding.skip' => 'Пропустить',
 			'onboarding.next' => 'Далее',
 			'onboarding.get_started' => 'Начать',
+			'onboarding.allow_notifications' => 'Разрешить уведомления',
 			'auth.login' => 'Войти',
 			'auth.register' => 'Регистрация',
 			'auth.register_subtitle' => 'Создайте новый аккаунт',

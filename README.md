@@ -1,6 +1,6 @@
 # Zehnmind Tasks
 
-Senior Flutter Developer test loyihasi (Zehnmind.ai). Firebase asosida Auth + TODO + Profile.
+Zehnmind.ai. Firebase asosida Auth + TODO + Profile.
 
 ## Stack
 

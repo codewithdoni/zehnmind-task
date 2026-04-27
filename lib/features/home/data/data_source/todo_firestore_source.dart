@@ -24,14 +24,27 @@ class TodoFirestoreSource {
         .map((snap) => snap.docs.map(TodoItem.fromFirestore).toList());
   }
 
-  Future<void> addTodo({required String title, String? description}) async {
-    await _todosRef().add({
+  /// Returns the Firestore-generated document id so callers can schedule
+  /// reminders against it.
+  Future<String> addTodo({
+    required String title,
+    String? description,
+    TodoPriority priority = TodoPriority.medium,
+    DateTime? dueDate,
+    List<String> categories = const [],
+  }) async {
+    final ref = await _todosRef().add({
       'title': title,
       'description': description ?? '',
       'is_completed': false,
+      'priority': priority.name,
+      'due_date': dueDate == null ? null : Timestamp.fromDate(dueDate),
+      'categories': categories,
+      'subtasks': <Map<String, dynamic>>[],
       'created_at': FieldValue.serverTimestamp(),
       'updated_at': FieldValue.serverTimestamp(),
     });
+    return ref.id;
   }
 
   Future<void> updateTodo(TodoItem todo) async {

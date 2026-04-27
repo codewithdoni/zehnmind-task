@@ -42,6 +42,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsCommonUz common = TranslationsCommonUz.internal(_root);
 	late final TranslationsErrorsUz errors = TranslationsErrorsUz.internal(_root);
+	late final TranslationsLanguageUz language = TranslationsLanguageUz.internal(_root);
 	late final TranslationsOnboardingUz onboarding = TranslationsOnboardingUz.internal(_root);
 	late final TranslationsAuthUz auth = TranslationsAuthUz.internal(_root);
 	late final TranslationsHomeUz home = TranslationsHomeUz.internal(_root);
@@ -126,6 +127,36 @@ class TranslationsErrorsUz {
 	String get google_sign_in_failed => 'Google bilan kirish bekor qilindi';
 }
 
+// Path: language
+class TranslationsLanguageUz {
+	TranslationsLanguageUz.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// uz: 'Tilni tanlang'
+	String get title => 'Tilni tanlang';
+
+	/// uz: 'Ilovani qaysi tilda ko'rishni xohlaysiz?'
+	String get subtitle => 'Ilovani qaysi tilda ko\'rishni xohlaysiz?';
+
+	/// uz: 'O'zbekcha'
+	String get uzbek => 'O\'zbekcha';
+
+	/// uz: 'Ўзбекча'
+	String get uzbek_cyrillic => 'Ўзбекча';
+
+	/// uz: 'Русский'
+	String get russian => 'Русский';
+
+	/// uz: 'Davom etish'
+	String get kContinue => 'Davom etish';
+
+	/// uz: 'Tilni o'zgartirish'
+	String get change_language => 'Tilni o\'zgartirish';
+}
+
 // Path: onboarding
 class TranslationsOnboardingUz {
 	TranslationsOnboardingUz.internal(this._root);
@@ -152,6 +183,12 @@ class TranslationsOnboardingUz {
 	/// uz: 'Tez ro'yxatdan o'ting va birinchi vazifangizni qo'shing.'
 	String get step3_desc => 'Tez ro\'yxatdan o\'ting va birinchi vazifangizni qo\'shing.';
 
+	/// uz: 'Eslatib turaylik'
+	String get step4_title => 'Eslatib turaylik';
+
+	/// uz: 'Vazifa muddati yetganda OS notification orqali eslatamiz.'
+	String get step4_desc => 'Vazifa muddati yetganda OS notification orqali eslatamiz.';
+
 	/// uz: 'O'tkazib yuborish'
 	String get skip => 'O\'tkazib yuborish';
 
@@ -160,6 +197,9 @@ class TranslationsOnboardingUz {
 
 	/// uz: 'Boshlash'
 	String get get_started => 'Boshlash';
+
+	/// uz: 'Bildirishnomalarga ruxsat berish'
+	String get allow_notifications => 'Bildirishnomalarga ruxsat berish';
 }
 
 // Path: auth
@@ -331,15 +371,25 @@ extension on Translations {
 			'errors.user_not_found' => 'Foydalanuvchi topilmadi',
 			'errors.invalid_otp' => 'SMS kod noto\'g\'ri',
 			'errors.google_sign_in_failed' => 'Google bilan kirish bekor qilindi',
+			'language.title' => 'Tilni tanlang',
+			'language.subtitle' => 'Ilovani qaysi tilda ko\'rishni xohlaysiz?',
+			'language.uzbek' => 'O\'zbekcha',
+			'language.uzbek_cyrillic' => 'Ўзбекча',
+			'language.russian' => 'Русский',
+			'language.kContinue' => 'Davom etish',
+			'language.change_language' => 'Tilni o\'zgartirish',
 			'onboarding.step1_title' => 'Vazifalaringizni boshqaring',
 			'onboarding.step1_desc' => 'Hayotingizni tartibga soling — todo\'larni qo\'shing va tugallash bilan davom eting.',
 			'onboarding.step2_title' => 'Hamma joyda sinxron',
 			'onboarding.step2_desc' => 'Cloud orqali real-time sinxronlash — har qanday qurilmadan kiring.',
 			'onboarding.step3_title' => 'Boshlaymiz!',
 			'onboarding.step3_desc' => 'Tez ro\'yxatdan o\'ting va birinchi vazifangizni qo\'shing.',
+			'onboarding.step4_title' => 'Eslatib turaylik',
+			'onboarding.step4_desc' => 'Vazifa muddati yetganda OS notification orqali eslatamiz.',
 			'onboarding.skip' => 'O\'tkazib yuborish',
 			'onboarding.next' => 'Keyingi',
 			'onboarding.get_started' => 'Boshlash',
+			'onboarding.allow_notifications' => 'Bildirishnomalarga ruxsat berish',
 			'auth.login' => 'Kirish',
 			'auth.register' => 'Ro\'yxatdan o\'tish',
 			'auth.register_subtitle' => 'Yangi hisob yarating',

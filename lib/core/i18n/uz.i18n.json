@@ -23,6 +23,15 @@
     "invalid_otp": "SMS kod noto'g'ri",
     "google_sign_in_failed": "Google bilan kirish bekor qilindi"
   },
+  "language": {
+    "title": "Tilni tanlang",
+    "subtitle": "Ilovani qaysi tilda ko'rishni xohlaysiz?",
+    "uzbek": "O'zbekcha",
+    "uzbek_cyrillic": "Ўзбекча",
+    "russian": "Русский",
+    "continue": "Davom etish",
+    "change_language": "Tilni o'zgartirish"
+  },
   "onboarding": {
     "step1_title": "Vazifalaringizni boshqaring",
     "step1_desc": "Hayotingizni tartibga soling — todo'larni qo'shing va tugallash bilan davom eting.",
@@ -30,9 +39,12 @@
     "step2_desc": "Cloud orqali real-time sinxronlash — har qanday qurilmadan kiring.",
     "step3_title": "Boshlaymiz!",
     "step3_desc": "Tez ro'yxatdan o'ting va birinchi vazifangizni qo'shing.",
+    "step4_title": "Eslatib turaylik",
+    "step4_desc": "Vazifa muddati yetganda OS notification orqali eslatamiz.",
     "skip": "O'tkazib yuborish",
     "next": "Keyingi",
-    "get_started": "Boshlash"
+    "get_started": "Boshlash",
+    "allow_notifications": "Bildirishnomalarga ruxsat berish"
   },
   "auth": {
     "login": "Kirish",

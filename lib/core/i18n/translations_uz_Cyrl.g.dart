@@ -41,6 +41,7 @@ class TranslationsUzCyrl extends Translations with BaseTranslations<AppLocale, T
 	// Translations
 	@override late final _TranslationsCommonUzCyrl common = _TranslationsCommonUzCyrl._(_root);
 	@override late final _TranslationsErrorsUzCyrl errors = _TranslationsErrorsUzCyrl._(_root);
+	@override late final _TranslationsLanguageUzCyrl language = _TranslationsLanguageUzCyrl._(_root);
 	@override late final _TranslationsOnboardingUzCyrl onboarding = _TranslationsOnboardingUzCyrl._(_root);
 	@override late final _TranslationsAuthUzCyrl auth = _TranslationsAuthUzCyrl._(_root);
 	@override late final _TranslationsHomeUzCyrl home = _TranslationsHomeUzCyrl._(_root);
@@ -85,6 +86,22 @@ class _TranslationsErrorsUzCyrl extends TranslationsErrorsUz {
 	@override String get google_sign_in_failed => 'Google билан кириш бекор қилинди';
 }
 
+// Path: language
+class _TranslationsLanguageUzCyrl extends TranslationsLanguageUz {
+	_TranslationsLanguageUzCyrl._(TranslationsUzCyrl root) : this._root = root, super.internal(root);
+
+	final TranslationsUzCyrl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Тилни танланг';
+	@override String get subtitle => 'Иловани қайси тилда кўришни хоҳлайсиз?';
+	@override String get uzbek => 'O\'zbekcha';
+	@override String get uzbek_cyrillic => 'Ўзбекча';
+	@override String get russian => 'Русский';
+	@override String get kContinue => 'Давом этиш';
+	@override String get change_language => 'Тилни ўзгартириш';
+}
+
 // Path: onboarding
 class _TranslationsOnboardingUzCyrl extends TranslationsOnboardingUz {
 	_TranslationsOnboardingUzCyrl._(TranslationsUzCyrl root) : this._root = root, super.internal(root);
@@ -98,9 +115,12 @@ class _TranslationsOnboardingUzCyrl extends TranslationsOnboardingUz {
 	@override String get step2_desc => 'Cloud орқали real-time синхронлаш — ҳар қандай қурилмадан киринг.';
 	@override String get step3_title => 'Бошлаймиз!';
 	@override String get step3_desc => 'Тез рўйхатдан ўтинг ва биринчи вазифангизни қўшинг.';
+	@override String get step4_title => 'Эслатиб турайлик';
+	@override String get step4_desc => 'Вазифа муддати етганда OS бildiришномаси орқали эслатамиз.';
 	@override String get skip => 'Ўтказиб юбориш';
 	@override String get next => 'Кейинги';
 	@override String get get_started => 'Бошлаш';
+	@override String get allow_notifications => 'Билдиришномаларга рухсат бериш';
 }
 
 // Path: auth
@@ -196,15 +216,25 @@ extension on TranslationsUzCyrl {
 			'errors.user_not_found' => 'Фойдаланувчи топилмади',
 			'errors.invalid_otp' => 'СМС код нотўғри',
 			'errors.google_sign_in_failed' => 'Google билан кириш бекор қилинди',
+			'language.title' => 'Тилни танланг',
+			'language.subtitle' => 'Иловани қайси тилда кўришни хоҳлайсиз?',
+			'language.uzbek' => 'O\'zbekcha',
+			'language.uzbek_cyrillic' => 'Ўзбекча',
+			'language.russian' => 'Русский',
+			'language.kContinue' => 'Давом этиш',
+			'language.change_language' => 'Тилни ўзгартириш',
 			'onboarding.step1_title' => 'Вазифаларингизни бошқаринг',
 			'onboarding.step1_desc' => 'Ҳаётингизни тартибга солинг — todoларни қўшинг ва тугаллаш билан давом этинг.',
 			'onboarding.step2_title' => 'Ҳамма жойда синхрон',
 			'onboarding.step2_desc' => 'Cloud орқали real-time синхронлаш — ҳар қандай қурилмадан киринг.',
 			'onboarding.step3_title' => 'Бошлаймиз!',
 			'onboarding.step3_desc' => 'Тез рўйхатдан ўтинг ва биринчи вазифангизни қўшинг.',
+			'onboarding.step4_title' => 'Эслатиб турайлик',
+			'onboarding.step4_desc' => 'Вазифа муддати етганда OS бildiришномаси орқали эслатамиз.',
 			'onboarding.skip' => 'Ўтказиб юбориш',
 			'onboarding.next' => 'Кейинги',
 			'onboarding.get_started' => 'Бошлаш',
+			'onboarding.allow_notifications' => 'Билдиришномаларга рухсат бериш',
 			'auth.login' => 'Кириш',
 			'auth.register' => 'Рўйхатдан ўтиш',
 			'auth.register_subtitle' => 'Янги ҳисоб яратинг',

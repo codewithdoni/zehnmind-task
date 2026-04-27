@@ -65,6 +65,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             context.showSnack(_errorText(state.error!));
             context.read<AuthBloc>().add(const AuthEvent.clearError());
           }
+          if (state.status == AuthStatus.authenticated) {
+            context.go(AppRoute.home);
+          }
         },
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),

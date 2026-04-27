@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
+import 'package:zehnmind/config/router/app_router.dart';
 import 'package:zehnmind/core/error/app_exception.dart';
 import 'package:zehnmind/core/extensions/context_extensions.dart';
 import 'package:zehnmind/core/i18n/translations.g.dart';
@@ -94,6 +96,9 @@ class _OtpScreenState extends State<OtpScreen> {
               state.verificationId != null) {
             _verificationId = state.verificationId!;
             _startTimer();
+          }
+          if (state.status == AuthStatus.authenticated) {
+            context.go(AppRoute.home);
           }
         },
         child: SingleChildScrollView(

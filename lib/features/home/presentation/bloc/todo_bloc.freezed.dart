@@ -128,11 +128,11 @@ return delete(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  startWatching,TResult Function( String title,  String? description)?  add,TResult Function( TodoItem todo)?  update,TResult Function( String id,  bool isCompleted)?  toggle,TResult Function( String id)?  delete,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  startWatching,TResult Function( String title,  String? description,  TodoPriority priority,  DateTime? dueDate,  List<String> categories)?  add,TResult Function( TodoItem todo)?  update,TResult Function( String id,  bool isCompleted)?  toggle,TResult Function( String id)?  delete,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case TodoEventStartWatching() when startWatching != null:
 return startWatching();case TodoEventAdd() when add != null:
-return add(_that.title,_that.description);case TodoEventUpdate() when update != null:
+return add(_that.title,_that.description,_that.priority,_that.dueDate,_that.categories);case TodoEventUpdate() when update != null:
 return update(_that.todo);case TodoEventToggle() when toggle != null:
 return toggle(_that.id,_that.isCompleted);case TodoEventDelete() when delete != null:
 return delete(_that.id);case _:
@@ -153,11 +153,11 @@ return delete(_that.id);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  startWatching,required TResult Function( String title,  String? description)  add,required TResult Function( TodoItem todo)  update,required TResult Function( String id,  bool isCompleted)  toggle,required TResult Function( String id)  delete,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  startWatching,required TResult Function( String title,  String? description,  TodoPriority priority,  DateTime? dueDate,  List<String> categories)  add,required TResult Function( TodoItem todo)  update,required TResult Function( String id,  bool isCompleted)  toggle,required TResult Function( String id)  delete,}) {final _that = this;
 switch (_that) {
 case TodoEventStartWatching():
 return startWatching();case TodoEventAdd():
-return add(_that.title,_that.description);case TodoEventUpdate():
+return add(_that.title,_that.description,_that.priority,_that.dueDate,_that.categories);case TodoEventUpdate():
 return update(_that.todo);case TodoEventToggle():
 return toggle(_that.id,_that.isCompleted);case TodoEventDelete():
 return delete(_that.id);}
@@ -174,11 +174,11 @@ return delete(_that.id);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  startWatching,TResult? Function( String title,  String? description)?  add,TResult? Function( TodoItem todo)?  update,TResult? Function( String id,  bool isCompleted)?  toggle,TResult? Function( String id)?  delete,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  startWatching,TResult? Function( String title,  String? description,  TodoPriority priority,  DateTime? dueDate,  List<String> categories)?  add,TResult? Function( TodoItem todo)?  update,TResult? Function( String id,  bool isCompleted)?  toggle,TResult? Function( String id)?  delete,}) {final _that = this;
 switch (_that) {
 case TodoEventStartWatching() when startWatching != null:
 return startWatching();case TodoEventAdd() when add != null:
-return add(_that.title,_that.description);case TodoEventUpdate() when update != null:
+return add(_that.title,_that.description,_that.priority,_that.dueDate,_that.categories);case TodoEventUpdate() when update != null:
 return update(_that.todo);case TodoEventToggle() when toggle != null:
 return toggle(_that.id,_that.isCompleted);case TodoEventDelete() when delete != null:
 return delete(_that.id);case _:
@@ -225,11 +225,20 @@ String toString() {
 
 
 class TodoEventAdd implements TodoEvent {
-  const TodoEventAdd({required this.title, this.description});
+  const TodoEventAdd({required this.title, this.description, this.priority = TodoPriority.medium, this.dueDate, final  List<String> categories = const <String>[]}): _categories = categories;
   
 
  final  String title;
  final  String? description;
+@JsonKey() final  TodoPriority priority;
+ final  DateTime? dueDate;
+ final  List<String> _categories;
+@JsonKey() List<String> get categories {
+  if (_categories is EqualUnmodifiableListView) return _categories;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_categories);
+}
+
 
 /// Create a copy of TodoEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -241,16 +250,16 @@ $TodoEventAddCopyWith<TodoEventAdd> get copyWith => _$TodoEventAddCopyWithImpl<T
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TodoEventAdd&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TodoEventAdd&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&const DeepCollectionEquality().equals(other._categories, _categories));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,title,description);
+int get hashCode => Object.hash(runtimeType,title,description,priority,dueDate,const DeepCollectionEquality().hash(_categories));
 
 @override
 String toString() {
-  return 'TodoEvent.add(title: $title, description: $description)';
+  return 'TodoEvent.add(title: $title, description: $description, priority: $priority, dueDate: $dueDate, categories: $categories)';
 }
 
 
@@ -261,7 +270,7 @@ abstract mixin class $TodoEventAddCopyWith<$Res> implements $TodoEventCopyWith<$
   factory $TodoEventAddCopyWith(TodoEventAdd value, $Res Function(TodoEventAdd) _then) = _$TodoEventAddCopyWithImpl;
 @useResult
 $Res call({
- String title, String? description
+ String title, String? description, TodoPriority priority, DateTime? dueDate, List<String> categories
 });
 
 
@@ -278,11 +287,14 @@ class _$TodoEventAddCopyWithImpl<$Res>
 
 /// Create a copy of TodoEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? title = null,Object? description = freezed,}) {
+@pragma('vm:prefer-inline') $Res call({Object? title = null,Object? description = freezed,Object? priority = null,Object? dueDate = freezed,Object? categories = null,}) {
   return _then(TodoEventAdd(
 title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as TodoPriority,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
+as DateTime?,categories: null == categories ? _self._categories : categories // ignore: cast_nullable_to_non_nullable
+as List<String>,
   ));
 }
 

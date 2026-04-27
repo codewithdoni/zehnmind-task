@@ -9,11 +9,14 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:share_plus/share_plus.dart';
+import 'package:zehnmind/config/di/get_it.dart';
 import 'package:zehnmind/config/router/app_router.dart';
 import 'package:zehnmind/core/extensions/context_extensions.dart';
 import 'package:zehnmind/core/i18n/translations.g.dart';
+import 'package:zehnmind/core/services/language_service.dart';
 import 'package:zehnmind/core/theme/app_colors.dart';
 import 'package:zehnmind/core/widgets/app_button.dart';
+import 'package:zehnmind/core/widgets/language_picker_tile.dart';
 import 'package:zehnmind/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:zehnmind/features/profile/domain/entity/user_profile.dart';
 import 'package:zehnmind/features/profile/presentation/bloc/profile_bloc.dart';
@@ -110,6 +113,64 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void _showLanguagePicker(BuildContext context) {
+    final service = getIt<LanguageService>();
+    showModalBottomSheet<void>(
+      context: context,
+      useRootNavigator: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (sheetCtx) {
+        return StatefulBuilder(
+          builder: (innerCtx, setSheetState) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 36,
+                      height: 4,
+                      margin: const EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: AppColors.border,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    t.language.title,
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  ...service.availableLocales.map(
+                    (locale) => Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: LanguagePickerTile(
+                        flag: service.flag(locale),
+                        label: service.displayName(locale),
+                        selected: service.currentLocale == locale,
+                        onTap: () async {
+                          await service.setLocale(locale);
+                          if (innerCtx.mounted) Navigator.pop(innerCtx);
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
@@ -233,6 +294,12 @@ class ProfileScreen extends StatelessWidget {
                     size: 20,
                   ),
                   onPressed: () => context.push(AppRoute.editProfile),
+                ),
+                const SizedBox(height: 8),
+                AppOutlinedButton(
+                  label: t.language.change_language,
+                  icon: const Icon(Icons.language_rounded, size: 18),
+                  onPressed: () => _showLanguagePicker(context),
                 ),
                 const SizedBox(height: 8),
                 AppOutlinedButton(

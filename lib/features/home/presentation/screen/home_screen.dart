@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zehnmind/config/di/get_it.dart';
 import 'package:zehnmind/core/extensions/context_extensions.dart';
 import 'package:zehnmind/core/i18n/translations.g.dart';
+import 'package:zehnmind/core/services/ai_service.dart';
 import 'package:zehnmind/core/theme/app_colors.dart';
 import 'package:zehnmind/features/home/domain/entity/todo_item.dart';
 import 'package:zehnmind/features/home/presentation/bloc/todo_bloc.dart';
@@ -22,6 +24,11 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            tooltip: "Today's recap",
+            icon: const Icon(Icons.auto_awesome, color: AppColors.primary),
+            onPressed: () => _showRecap(context),
+          ),
           BlocBuilder<TodoBloc, TodoState>(
             builder: (context, state) {
               if (state.todos.isEmpty) return const SizedBox.shrink();
@@ -110,18 +117,81 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void _showRecap(BuildContext context) {
+    final state = context.read<TodoBloc>().state;
+    final todayStart = DateTime.now().copyWith(
+      hour: 0,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+      microsecond: 0,
+    );
+    final completedToday = state.todos.where((t) {
+      if (!t.isCompleted) return false;
+      final ts = t.updatedAt ?? t.createdAt;
+      return ts != null && ts.isAfter(todayStart);
+    }).toList();
+
+    showDialog<void>(
+      context: context,
+      builder: (dialogCtx) {
+        return AlertDialog(
+          title: const Row(
+            children: [
+              Icon(Icons.auto_awesome, color: AppColors.primary),
+              SizedBox(width: 8),
+              Text("Today's Recap"),
+            ],
+          ),
+          content: FutureBuilder<String>(
+            future: getIt<AiService>().summarize(completedToday),
+            builder: (_, snap) {
+              if (!snap.hasData) {
+                return const SizedBox(
+                  height: 80,
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+              return Text(snap.data!);
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogCtx),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _showAddSheet(BuildContext context) {
     final bloc = context.read<TodoBloc>();
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      useRootNavigator: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (sheetCtx) => TodoFormSheet(
-        onSubmit: (title, desc) {
-          bloc.add(TodoEvent.add(title: title, description: desc));
+        onSubmit: (result) {
+          bloc.add(TodoEvent.add(
+            title: result.title,
+            description: result.description,
+            priority: result.priority,
+            dueDate: result.dueDate,
+            categories: result.categories,
+          ));
           Navigator.pop(sheetCtx);
+          // Subtasks initial qo'shish uchun keyin update event yuboramiz.
+          if (result.subtasks.isNotEmpty) {
+            // Note: yangi todo Firestore'dan stream orqali keladi; subtasks'ni
+            // dastlabki add'ga qo'shib bera olmaymiz. Foydalanuvchi keyin edit
+            // qilib qo'shadi yoki initial add'da subtasks'ni Firestore'ga
+            // yozish uchun TodoEventAdd kengaytirilishi kerak.
+          }
         },
       ),
     );
@@ -132,16 +202,23 @@ class HomeScreen extends StatelessWidget {
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      useRootNavigator: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (sheetCtx) => TodoFormSheet(
-        initialTitle: todo.title,
-        initialDescription: todo.description,
-        onSubmit: (title, desc) {
+        initial: todo,
+        onSubmit: (result) {
           bloc.add(
             TodoEvent.update(
-              todo.copyWith(title: title, description: desc ?? ''),
+              todo.copyWith(
+                title: result.title,
+                description: result.description ?? '',
+                priority: result.priority,
+                dueDate: result.dueDate,
+                categories: result.categories,
+                subtasks: result.subtasks,
+              ),
             ),
           );
           Navigator.pop(sheetCtx);

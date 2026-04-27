@@ -29,13 +29,18 @@ class AuthFirebaseSource {
       password: password,
     );
     final user = cred.user!;
-    await user.updateDisplayName(fullName);
-    await _firestore.collection('users').doc(user.uid).set({
-      'full_name': fullName,
-      'email': email,
-      'phone': phone,
-      'created_at': FieldValue.serverTimestamp(),
-    });
+    try {
+      await user.updateDisplayName(fullName);
+      await _firestore.collection('users').doc(user.uid).set({
+        'full_name': fullName,
+        'email': email,
+        'phone': phone,
+        'created_at': FieldValue.serverTimestamp(),
+      });
+    } catch (_) {
+      // Profile yozish muvaffaqiyatsiz bo'lsa ham, Auth user yaratilgan.
+      // Profile keyinroq ProfileFirestoreSource tomonidan auto-create qilinadi.
+    }
     return user;
   }
 

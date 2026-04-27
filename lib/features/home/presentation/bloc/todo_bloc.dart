@@ -41,7 +41,13 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
   Future<void> _onAdd(TodoEventAdd e, Emitter<TodoState> emit) async {
     try {
-      await _repo.addTodo(title: e.title, description: e.description);
+      await _repo.addTodo(
+        title: e.title,
+        description: e.description,
+        priority: e.priority,
+        dueDate: e.dueDate,
+        categories: e.categories,
+      );
     } on AppException catch (err) {
       emit(state.copyWith(error: err));
     }

@@ -70,6 +70,9 @@ class _LoginScreenState extends State<LoginScreen>
                 },
               );
             }
+            if (state.status == AuthStatus.authenticated) {
+              context.go(AppRoute.home);
+            }
           },
           child: SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),

@@ -23,8 +23,10 @@ import 'package:zehnmind/config/di/module/logger_module.dart' as _i484;
 import 'package:zehnmind/config/di/module/shared_pref_module.dart' as _i9;
 import 'package:zehnmind/core/safe_execution/safe_execution_manager.dart'
     as _i905;
+import 'package:zehnmind/core/services/ai_service.dart' as _i1052;
 import 'package:zehnmind/core/services/analytics_service.dart' as _i50;
 import 'package:zehnmind/core/services/language_service.dart' as _i946;
+import 'package:zehnmind/core/services/notification_service.dart' as _i466;
 import 'package:zehnmind/features/auth/data/data_source/auth_firebase_source.dart'
     as _i792;
 import 'package:zehnmind/features/auth/data/repository/auth_repository.dart'
@@ -76,24 +78,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => firebaseModule.firebaseCrashlytics,
     );
     gh.lazySingleton<_i974.Logger>(() => loggerModule.logger);
-    gh.lazySingleton<_i946.LanguageService>(
-      () => _i946.LanguageService(gh<_i460.SharedPreferences>()),
-    );
-    gh.lazySingleton<_i52.OnboardingCubit>(
-      () => _i52.OnboardingCubit(gh<_i460.SharedPreferences>()),
-    );
-    gh.lazySingleton<_i905.SafeExecutionManager>(
-      () => _i905.SafeExecutionManager(gh<_i974.Logger>()),
-    );
     gh.lazySingleton<_i50.AnalyticsService>(
       () => _i50.AnalyticsService(gh<_i398.FirebaseAnalytics>()),
-    );
-    gh.lazySingleton<_i792.AuthFirebaseSource>(
-      () => _i792.AuthFirebaseSource(
-        gh<_i59.FirebaseAuth>(),
-        gh<_i116.GoogleSignIn>(),
-        gh<_i974.FirebaseFirestore>(),
-      ),
     );
     gh.lazySingleton<_i797.TodoFirestoreSource>(
       () => _i797.TodoFirestoreSource(
@@ -107,10 +93,26 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i59.FirebaseAuth>(),
       ),
     );
-    gh.lazySingleton<_i791.BaseAuthRepository>(
-      () => _i797.AuthRepository(
-        gh<_i792.AuthFirebaseSource>(),
-        gh<_i905.SafeExecutionManager>(),
+    gh.lazySingleton<_i946.LanguageService>(
+      () => _i946.LanguageService(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i52.OnboardingCubit>(
+      () => _i52.OnboardingCubit(gh<_i460.SharedPreferences>()),
+    );
+    gh.lazySingleton<_i905.SafeExecutionManager>(
+      () => _i905.SafeExecutionManager(gh<_i974.Logger>()),
+    );
+    gh.lazySingleton<_i1052.AiService>(
+      () => _i1052.AiService(gh<_i974.Logger>()),
+    );
+    gh.lazySingleton<_i466.NotificationService>(
+      () => _i466.NotificationService(gh<_i974.Logger>()),
+    );
+    gh.lazySingleton<_i792.AuthFirebaseSource>(
+      () => _i792.AuthFirebaseSource(
+        gh<_i59.FirebaseAuth>(),
+        gh<_i116.GoogleSignIn>(),
+        gh<_i974.FirebaseFirestore>(),
       ),
     );
     gh.lazySingleton<_i1041.BaseProfileRepository>(
@@ -119,20 +121,28 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i905.SafeExecutionManager>(),
       ),
     );
-    gh.factory<_i141.AuthBloc>(
-      () => _i141.AuthBloc(gh<_i791.BaseAuthRepository>()),
-    );
     gh.lazySingleton<_i259.BaseTodoRepository>(
       () => _i520.TodoRepository(
         gh<_i797.TodoFirestoreSource>(),
         gh<_i905.SafeExecutionManager>(),
+        gh<_i466.NotificationService>(),
+        gh<_i974.Logger>(),
       ),
-    );
-    gh.factory<_i833.TodoBloc>(
-      () => _i833.TodoBloc(gh<_i259.BaseTodoRepository>()),
     );
     gh.factory<_i190.ProfileBloc>(
       () => _i190.ProfileBloc(gh<_i1041.BaseProfileRepository>()),
+    );
+    gh.lazySingleton<_i791.BaseAuthRepository>(
+      () => _i797.AuthRepository(
+        gh<_i792.AuthFirebaseSource>(),
+        gh<_i905.SafeExecutionManager>(),
+      ),
+    );
+    gh.factory<_i141.AuthBloc>(
+      () => _i141.AuthBloc(gh<_i791.BaseAuthRepository>()),
+    );
+    gh.factory<_i833.TodoBloc>(
+      () => _i833.TodoBloc(gh<_i259.BaseTodoRepository>()),
     );
     return this;
   }
