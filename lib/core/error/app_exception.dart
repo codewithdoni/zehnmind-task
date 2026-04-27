@@ -1,5 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:cloud_firestore/cloud_firestore.dart' as fs;
+import 'package:firebase_auth/firebase_auth.dart' as fb;
 
 sealed class AppException implements Exception {
   const AppException([this.message]);

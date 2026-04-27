@@ -79,7 +79,7 @@ GoRouter buildRouter(AuthBloc authBloc, OnboardingCubit onboardingCubit) {
       GoRoute(
         path: AppRoute.otp,
         builder: (_, state) {
-          final extra = state.extra as Map<String, dynamic>;
+          final extra = state.extra! as Map<String, dynamic>;
           return OtpScreen(
             verificationId: extra['verificationId'] as String,
             phoneNumber: extra['phoneNumber'] as String,

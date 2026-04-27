@@ -91,7 +91,6 @@ class AiService {
             'You are a friendly productivity coach. Given a list of tasks the '
             'user completed today, write a short uplifting recap in 2-3 '
             'sentences. Reference accomplishments, recognize effort. Plain text.',
-        temperature: 0.4,
       ).generateContent([Content.text(prompt.toString())]);
       return response.text?.trim() ??
           'Great work today — ${completedToday.length} tasks done!';

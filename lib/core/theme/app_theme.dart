@@ -12,7 +12,6 @@ class AppTheme {
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
-        surface: AppColors.surface,
         error: AppColors.error,
       ),
       textTheme: GoogleFonts.interTextTheme(base.textTheme).apply(

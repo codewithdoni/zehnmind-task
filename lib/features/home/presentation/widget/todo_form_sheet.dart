@@ -203,7 +203,7 @@ class _TodoFormSheetState extends State<TodoFormSheet> {
               maxLines: 3,
             ),
             const SizedBox(height: 16),
-            _SectionLabel('Priority'),
+            const _SectionLabel('Priority'),
             const SizedBox(height: 8),
             SegmentedButton<TodoPriority>(
               segments: const [
@@ -228,7 +228,7 @@ class _TodoFormSheetState extends State<TodoFormSheet> {
                   setState(() => _priority = s.first),
             ),
             const SizedBox(height: 16),
-            _SectionLabel('Due date'),
+            const _SectionLabel('Due date'),
             const SizedBox(height: 8),
             Row(
               children: [
@@ -253,7 +253,7 @@ class _TodoFormSheetState extends State<TodoFormSheet> {
               ],
             ),
             const SizedBox(height: 16),
-            _SectionLabel('Categories'),
+            const _SectionLabel('Categories'),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
@@ -273,7 +273,7 @@ class _TodoFormSheetState extends State<TodoFormSheet> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _SectionLabel('Subtasks'),
+                const _SectionLabel('Subtasks'),
                 TextButton.icon(
                   onPressed: _addSubtask,
                   icon: const Icon(Icons.add, size: 18),

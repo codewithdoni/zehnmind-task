@@ -146,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       Text(
                         '${t.auth.have_account} ',
-                        style: TextStyle(color: AppColors.textSecondary),
+                        style: const TextStyle(color: AppColors.textSecondary),
                       ),
                       GestureDetector(
                         onTap: () => context.go(AppRoute.login),

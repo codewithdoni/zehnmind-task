@@ -57,7 +57,6 @@ class TodoListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Checkbox(
                     value: todo.isCompleted,

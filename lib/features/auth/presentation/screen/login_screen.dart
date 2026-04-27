@@ -168,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen>
                     children: [
                       Text(
                         '${t.auth.no_account} ',
-                        style: TextStyle(color: AppColors.textSecondary),
+                        style: const TextStyle(color: AppColors.textSecondary),
                       ),
                       GestureDetector(
                         onTap: () => context.push(AppRoute.register),
@@ -254,7 +254,7 @@ class _OrDivider extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Text(
             label,
-            style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+            style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
           ),
         ),
         const Expanded(child: Divider(color: AppColors.divider)),

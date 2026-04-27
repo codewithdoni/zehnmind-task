@@ -8,8 +8,6 @@ abstract class LoggerModule {
     printer: PrettyPrinter(
       methodCount: 0,
       errorMethodCount: 5,
-      colors: true,
-      printEmojis: true,
     ),
   );
 }
